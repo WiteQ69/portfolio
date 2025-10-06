@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Zap, Palette, TrendingUp, Video as LucideIcon } from 'lucide-react';
-import { siteContent } from '@/lib/content';
-import { Card, CardContent } from '@/components/ui/card';
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { Zap, Palette, TrendingUp, type LucideIcon } from "lucide-react";
+import { siteContent } from "@/lib/content";
+import { Card, CardContent } from "@/components/ui/card";
 
 const iconMap: Record<string, LucideIcon> = {
   Zap,
   Palette,
-  TrendingUp
+  TrendingUp,
 };
 
 export function AboutSection() {
@@ -25,7 +25,9 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{siteContent.about.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            {siteContent.about.title}
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {siteContent.about.bio}
           </p>
@@ -47,7 +49,9 @@ export function AboutSection() {
                       <Icon className="w-7 h-7 text-accent" />
                     </div>
                     <h3 className="text-2xl font-semibold mb-3">{usp.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{usp.description}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {usp.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -63,7 +67,11 @@ export function AboutSection() {
         >
           {siteContent.about.stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <AnimatedNumber value={stat.value} suffix={stat.suffix} isInView={isInView} />
+              <AnimatedNumber
+                value={stat.value}
+                suffix={stat.suffix}
+                isInView={isInView}
+              />
               <p className="text-muted-foreground mt-2">{stat.label}</p>
             </div>
           ))}
@@ -73,7 +81,15 @@ export function AboutSection() {
   );
 }
 
-function AnimatedNumber({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) {
+function AnimatedNumber({
+  value,
+  suffix,
+  isInView,
+}: {
+  value: number;
+  suffix: string;
+  isInView: boolean;
+}) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
