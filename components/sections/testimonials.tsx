@@ -44,7 +44,6 @@ export function TestimonialsSection() {
 
                   <div className="flex items-center gap-4">
                     <Avatar className="w-12 h-12 border-2 border-accent/20">
-                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                       <AvatarFallback>
                         {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
